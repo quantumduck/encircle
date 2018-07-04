@@ -9,13 +9,13 @@ function isInteger(string) {
 }
 
 function isFunction(string) {
-  return string.startsWith('(') && string.endsWith(')');
+  return string.startsWith("(") && string.endsWith(")");
 }
 
 function calculateExpression() {
   clearError();
-  var result = calculate(document.getElementById('sExpression').value);
-  document.getElementById('message-box').innerHTML = `=&gt; ${result}`;
+  var result = calculate(document.getElementById("sExpression").value);
+  document.getElementById("message-box").innerHTML = `=&gt; ${result}`;
 }
 
 function calculate(string) {
@@ -54,21 +54,21 @@ function getFunctionParams(string) {
   var startIndex = 0;
   for (var i = 0; i < string.length; i++) {
     var char = string[i];
-    if (char === '(') {
+    if (char === "(") {
       parenCount += 1;
-    } else if (char === ')') {
+    } else if (char === ")") {
       parenCount -= 1;
-    } else if (char === ' ' && parenCount === 0) {
+    } else if (char === " " && parenCount === 0) {
       params.push(string.substring(startIndex, i));
       startIndex = i + 1;
     }
     if (parenCount < 0) {
-      printError('Unmatched close param found');
+      printError("Unmatched close param found");
       return [];
     }
   }
   if (parenCount > 0) {
-    printError('Unmatched open param found');
+    printError("Unmatched open param found");
     return [];
   }
   params.push(string.substring(startIndex));
