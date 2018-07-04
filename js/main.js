@@ -39,7 +39,7 @@ function calculate(string) {
       return NaN;
     }
   } else {
-    printError(`Unparseable expression: ${string}`);
+    printError(`Unparseable expression: ${string}<br>(not a positive integer or enclosed in parentheses)`);
     return NaN;
   }
 }
